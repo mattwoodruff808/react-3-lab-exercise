@@ -11,19 +11,19 @@ class Display extends Component {
         }
     }
 
-    nextIndex = () => {
-        if (this.state.index <= 23 && this.state.index >= 0){
-            this.setState({index: this.state.index + 1})
-        } else {
-            this.setState({index: 0})
-        }
-    }
-
     previousIndex = () => {
-        if (this.state.index <= 24 && this.state.index >= 1){
+        if (this.state.index >= 1 && this.state.index <= 24){
             this.setState({index: this.state.index - 1})
         } else {
             this.setState({index: 24})
+        }
+    }
+
+    nextIndex = () => {
+        if (this.state.index >= 0 && this.state.index <= 23){
+            this.setState({index: this.state.index + 1})
+        } else {
+            this.setState({index: 0})
         }
     }
 
@@ -39,8 +39,8 @@ class Display extends Component {
                     <h5 key={i}>{movie}</h5>
                 ))}</h4>
                 <Navigation 
-                    nextFn={this.nextIndex}
-                    previousFn={this.previousIndex}/>
+                    previousFn={this.previousIndex}
+                    nextFn={this.nextIndex}/>
             </section>
         )
     }
