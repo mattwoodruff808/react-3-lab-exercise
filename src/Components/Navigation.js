@@ -5,6 +5,7 @@ class Navigation extends Component {
         return (
             <section>
                 <button onClick={this.props.previousFn}>Previous</button>
+                <button onClick={this.props.deleteFn}>Delete</button>
                 <button onClick={this.props.nextFn}>Next</button>
             </section>
         )

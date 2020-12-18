@@ -27,20 +27,27 @@ class Display extends Component {
         }
     }
 
+    deleteIndex = () => {
+        this.setState({arr: this.state.arr.filter((e, i) => (i !== this.state.index))})
+    }
+
     render(){
         return (
             <section>
-                <h2>{this.state.arr[this.state.index].id}/25</h2>
-                <h2>{this.state.arr[this.state.index].name.first} {this.state.arr[this.state.index].name.last}</h2>
-                <h4>From: {this.state.arr[this.state.index].city}, {this.state.arr[this.state.index].country}</h4>
-                <h4>Job Title: {this.state.arr[this.state.index].title}</h4>
-                <h4>Employer: {this.state.arr[this.state.index].employer}</h4>
-                <h4>Favorite Movies: {this.state.arr[this.state.index].favoriteMovies.map((movie, i) => (
-                    <h5 key={i}>{movie}</h5>
-                ))}</h4>
+                <div className="White-Box">
+                    <h2>{this.state.arr[this.state.index].id}/25</h2>
+                    <h2>{this.state.arr[this.state.index].name.first} {this.state.arr[this.state.index].name.last}</h2>
+                    <h4>From: {this.state.arr[this.state.index].city}, {this.state.arr[this.state.index].country}</h4>
+                    <h4>Job Title: {this.state.arr[this.state.index].title}</h4>
+                    <h4>Employer: {this.state.arr[this.state.index].employer}</h4>
+                    <h4>Favorite Movies: {this.state.arr[this.state.index].favoriteMovies.map((movie, i) => (
+                        <h5 key={i}>{movie}</h5>
+                    ))}</h4>
+                </div>
                 <Navigation 
                     previousFn={this.previousIndex}
-                    nextFn={this.nextIndex}/>
+                    nextFn={this.nextIndex}
+                    deleteFn={this.deleteIndex}/>
             </section>
         )
     }
